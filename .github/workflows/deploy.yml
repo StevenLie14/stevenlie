@@ -25,7 +25,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.REGISTRY_URL }}/${{ toLower(github.repository_owner) }}/${{ github.event.repository.name }}:latest
+          tags: ${{ secrets.REGISTRY_URL }}/stevenlie14/${{ github.event.repository.name }}:latest
 
 
 
