@@ -1,0 +1,11 @@
+
+services:
+  stevenlie:
+    tty: true
+    pull_policy: always
+    restart: unless-stopped
+    image: registry.stevenlie.my.id/stevenlie14/stevenlie:latest
+    build:
+      context: .
+    ports:
+      - "7070:7070"
