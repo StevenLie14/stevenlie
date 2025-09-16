@@ -23,9 +23,10 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: Dockerfile 
+          file: Dockerfile
           push: true
-          tags: ${{ secrets.REGISTRY_URL }}/$(echo ${{ github.repository_owner }}  | toLower )/$(echo ${{ github.repository }} | cut -d'/' -f2):latest
+          tags: ${{ secrets.REGISTRY_URL }}/${{ github.event.repository.owner.login }}/${{ github.event.repository.name }}:latest
+
 
   deploy:
     runs-on: hostinger
