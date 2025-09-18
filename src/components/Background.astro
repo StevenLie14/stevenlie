@@ -1,0 +1,55 @@
+---
+import { InteractiveGridPattern } from "./ui/interactive-grid-pattern";
+import { ScrollProgress } from "./ui/scroll-progress";
+import FloatingIcons from "./ui/floating-icons";
+import Navigation from "./Navigation.astro";
+import Hero from "./Hero.astro";
+
+---
+
+
+
+<div class="relative min-h-screen bg-slate-950">
+    <ScrollProgress client:load className="top-0" />
+    <FloatingIcons client:load />
+    <Navigation />
+    <InteractiveGridPattern
+      client:load
+      className="cyber-grid fixed inset-0 z-0 pointer-events-none [mask-image:radial-gradient(1100px_circle_at_center,white,transparent)]"
+      width={60}
+      height={60}
+      squares={[80, 80]}
+      squaresClassName="pointer-events-auto stroke-slate-700/30 hover:stroke-blue-500"
+    />
+
+    <div class="relative z-10 space-y-6 pointer-events-none">
+        <Hero />
+        <section class="min-h-screen" id="skills">..</section>
+        <section class="min-h-screen" id="experience">..</section>
+        <section class="min-h-screen" id="connect">..</section>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("a[data-section]");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+              entries.forEach((entry) => {
+                  const id = entry.target.getAttribute("id");
+                  const link = document.querySelector(`a[data-section="${id}"]`);
+
+                  if (entry.isIntersecting) {
+                      navLinks.forEach((l) => l.classList.remove("text-cyan-500"));
+                      link?.classList.add("text-cyan-500");
+                  }
+              });
+          },
+          { threshold: 0.6 }
+        );
+
+        sections.forEach((sec) => observer.observe(sec));
+    });
+</script>
