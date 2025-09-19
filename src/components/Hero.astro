@@ -2,7 +2,7 @@
 
 import {InteractiveHoverButton} from "./ui/interactive-hover-button";
 import {BoxReveal} from "./ui/box-reveal";
-import {Download, ChevronDownCircle, Github, Linkedin, Mail} from "lucide-react";
+import {Download, Phone, Github, Linkedin, Mail} from "lucide-react";
 import { Image } from 'astro:assets';
 import me from '../assets/me.jpeg'
 import FloatingIcons from "./ui/floating-icons";
@@ -53,24 +53,33 @@ import { Button } from "./ui/button";
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="pointer-events-auto text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all glow-border-blue"
+                          className="pointer-events-auto text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all glow-border-cyan"
                         >
-                            <Github className="w-5 h-5" />
+                            <Mail className="w-5 h-5" />
                         </Button>
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="pointer-events-auto text-gray-400 hover:text-purple-400 hover:bg-purple-500/10 transition-all glow-border-purple"
+                          className="pointer-events-auto text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all glow-border-blue"
                         >
                             <Linkedin className="w-5 h-5" />
                         </Button>
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="pointer-events-auto text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all glow-border-cyan"
+                          className="pointer-events-auto text-gray-400 hover:text-pink-400 hover:bg-pink-500/10 transition-all glow-border-pink"
                         >
-                            <Mail className="w-5 h-5" />
+                            <Phone className="w-5 h-5" />
                         </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="pointer-events-auto text-gray-400 hover:text-purple-400 hover:bg-purple-500/10 transition-all glow-border-purple"
+                        >
+                            <Github className="w-5 h-5" />
+
+                        </Button>
+
                     </div>
                 </BoxReveal>
 

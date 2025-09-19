@@ -38,11 +38,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-        <h2 className="text-4xl font-bold mb-4">Experience</h2>
-        <p className="text-sm md:text-base max-w-sm">
-          I&apos;ve been working on Binus for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p>
+        <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance">
+          <span className="text-blue-400 drop-shadow-[0_0_6px_rgba(59,130,246,0.5)]">
+            Experience
+          </span>
+        </h2>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-5">
