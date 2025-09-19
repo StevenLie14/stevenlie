@@ -1,0 +1,10 @@
+---
+import { Timeline } from "./ui/timeline";
+import {timelineData} from "../data/timeline-data";
+
+---
+
+<section id="experience" class="min-h-screen z-50 text-foreground pt-20 relative w-full overflow-visible">
+
+    <Timeline client:visible data={timelineData} />
+</section>
