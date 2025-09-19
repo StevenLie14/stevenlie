@@ -87,11 +87,9 @@
   }
 }
 
-
 .cyber-grid {
-  background-image:
-          linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
   animation: cyberShift 5s linear infinite;
 }
@@ -152,4 +150,50 @@
 
 .neon-text {
   text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6), 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+
+.glow-border-blue {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.glow-border-purple {
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+.glow-border-cyan {
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+}
+
+.glow-text-blue {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.8), 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+.hover-glow-blue:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.hover-glow-purple:hover {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.hover-glow-cyan:hover {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
