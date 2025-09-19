@@ -5,14 +5,14 @@ import {motion, useAnimation, useAnimationFrame, useMotionValue, useVelocity} fr
 import {useState} from "react";
 
 const techIcons = [
-  { name: "JS", Icon: SquareCode, color: "#eab308", x: 80, y: 65 },
-  { name: "Node", Icon: Server, color: "#22c55e", x: 10, y: 45 },
-  { name: "AI", Icon: Bot, color: "#9333ea", x: 90, y: 40 },
+  { name: "JS", Icon: SquareCode, color: "#eab308", x: 72, y: 75 },
+  { name: "Node", Icon: Server, color: "#22c55e", x: 10, y: 15 },
+  { name: "AI", Icon: Bot, color: "#9333ea", x: 90, y: 25 },
 ]
 
 export default function FloatingIcons() {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-50">
       {techIcons.map((icon) => {
         const controls = useAnimation();
         const x = useMotionValue(0);

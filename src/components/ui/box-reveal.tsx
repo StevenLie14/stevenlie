@@ -13,7 +13,7 @@ export interface BoxRevealProps {
 export const BoxReveal = ({
   children,
   width = "fit-content",
-  boxColor = "#5046e6",
+  boxColor = "#2b7fff",
   duration,
 }: BoxRevealProps) => {
   const mainControls = useAnimation();
@@ -33,7 +33,7 @@ export const BoxReveal = ({
   }, [isInView, mainControls, slideControls]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+    <div className={"p-0.5"}  ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -63,6 +63,7 @@ export const BoxReveal = ({
           zIndex: 20,
           background: boxColor,
         }}
+        className={"rounded-lg"}
       />
     </div>
   );

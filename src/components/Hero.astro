@@ -2,58 +2,74 @@
 
 import {InteractiveHoverButton} from "./ui/interactive-hover-button";
 import {BoxReveal} from "./ui/box-reveal";
-import {Download} from "lucide-react";
+import {Download, ChevronDownCircle, Github, Linkedin, Mail} from "lucide-react";
+import { Image } from 'astro:assets';
+import me from '../assets/me.jpeg'
+import FloatingIcons from "./ui/floating-icons";
+import {TypewriterText} from "./general/typewriter-text";
+import { Button } from "./ui/button";
 
 ---
 
-<section id="home" class="min-h-screen text-foreground relative overflow-hidden pt-30">
-    <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+<section id="home" class="min-h-screen text-foreground relative overflow-hidden pt-20">
+    <FloatingIcons client:load />
+    <div class="container mx-auto px-6 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="space-y-4">
-                    <BoxReveal client:load boxColor={"#5046e6"} duration={0.5}>
-                        <p class="text-[2.5rem] font-semibold">
-                            Hello, I am<span class="text-[#5046e6]"> Steven Liementha</span>
-                        </p>
-                    </BoxReveal>
-                    <BoxReveal client:load boxColor={"#5046e6"} duration={0.5}>
-                        <h1 class="text-5xl lg:text-6xl font-bold text-balance text-primary animate-pulse-neon">
-                            Data Scientist
-                        </h1>
-                    </BoxReveal>
-                    <BoxReveal client:load boxColor={"#5046e6"} duration={0.5}>
-                        <p class="text-lg text-muted-foreground max-w-md text-pretty">
-                            Crafting digital experiences in the neon-lit world of tomorrow. Specializing in cutting-edge web
-                            technologies and futuristic user interfaces.
-                        </p>
-                    </BoxReveal>
-
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <InteractiveHoverButton className="pointer-events-auto text-primary-foreground animate-glow">
-                        <div class="flex items-center gap-2">
-                            <Download className="w-4 h-4"/> Download CV
-                        </div>
-                    </InteractiveHoverButton>
-                </div>
+            <div class="space-y-4">
+                <BoxReveal client:load>
+                    <p class="text-lg text-muted-foreground">Hello, I am</p>
+                </BoxReveal>
+                <BoxReveal client:load>
+                    <h1 class="text-5xl lg:text-6xl font-bold">Steven Liementha</h1>
+                </BoxReveal>
+                <BoxReveal client:load>
+                    <div class="text-4xl lg:text-5xl font-bold text-primary neon-text leading-[1.5]">
+                        <TypewriterText
+                          client:load
+                          texts={["Data Scientist", "ML Engineer", "AI Researcher"]}
+                          speed={100}
+                          deleteSpeed={50}
+                          delayBetween={2000}
+                        />
+                    </div>
+                </BoxReveal>
+                <BoxReveal client:load>
+                    <p class="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                        Crafting digital experiences in the neon-lit world of tomorrow. Specializing in cutting-edge web
+                        technologies and futuristic user interfaces.
+                    </p>
+                </BoxReveal>
+                <BoxReveal client:load>
+                    <div class="flex items-center gap-4 mt-8">
+                        <InteractiveHoverButton className="pointer-events-auto text-primary-foreground mr-20 animate-glow">
+                            <div class="flex items-center gap-2">
+                                <Download className="w-4 h-4"/> Download CV
+                            </div>
+                        </InteractiveHoverButton>
+                    </div>
+                </BoxReveal>
+                <BoxReveal client:load>
+                    <div class="flex gap-4 mt-4">
+                        <Button variant="ghost" size="icon" className="hover:text-primary pointer-events-auto hover:scale-110 transition-all">
+                            <Github className="w-5 h-5" />
+                        </Button>
+                        <Button variant="ghost" size="icon" className="hover:text-primary pointer-events-auto hover:scale-110 transition-all">
+                            <Linkedin className="w-5 h-5" />
+                        </Button>
+                        <Button variant="ghost" size="icon" className="hover:text-primary pointer-events-auto hover:scale-110 transition-all">
+                            <Mail className="w-5 h-5" />
+                        </Button>
+                    </div>
+                </BoxReveal>
 
             </div>
 
             <div class="flex justify-center lg:justify-end">
-                <div class="relative">
-                    <div class="w-80 h-80 bg-card neon-border rounded-full flex items-center justify-center relative overflow-hidden">
+                <div class="relative p-20">
+
+                    <div class="w-50 h-50 lg:w-120 lg:h-120 bg-card neon-border rounded-full flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
-                        <div class="text-8xl relative z-10">🤖</div>
-                        <div class="absolute top-4 right-4 w-2 h-2 bg-primary rounded-full animate-ping"></div>
-                        <div
-                                class="absolute bottom-8 left-8 w-1 h-1 bg-secondary rounded-full animate-ping"
-                                style={{ animationDelay: "0.5s" }}
-                        ></div>
-                        <div
-                                class="absolute top-1/2 left-4 w-1 h-1 bg-accent rounded-full animate-ping"
-                                style={{ animationDelay: "1s" }}
-                        ></div>
+                        <Image loading={"eager"} class="w-full h-full object-cover relative z-10" src={me} alt="Me" />
                     </div>
                     <div class="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full animate-bounce neon-border"></div>
                     <div
@@ -62,6 +78,11 @@ import {Download} from "lucide-react";
                     ></div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
+            <div class="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
         </div>
     </div>
 </section>
