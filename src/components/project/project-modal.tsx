@@ -23,8 +23,8 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
   }
 
   return (
-    <div className="pointer-events-auto fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={closeModal}>
-      <div className="bg-gray-900 border border-gray-800 rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="pointer-events-auto fixed z-100 inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={closeModal}>
+      <div className="bg-gray-900 border border-gray-800 rounded-lg max-w-6xl w-full max-h-[90vh] lg:max-h-[80vh] overflow-y-auto">
         <div className="p-6">
           <div className="flex justify-between items-start mb-6">
             <div>
