@@ -1,5 +1,5 @@
-import { SquareCode, Server, Bot, Database, BrainCircuit } from "lucide-react"
-import { motion, useAnimation, useAnimationFrame, useMotionValue, useVelocity } from "motion/react"
+import { SquareCode, Bot, Database, BrainCircuit } from "lucide-react"
+import { motion, useAnimation } from "motion/react"
 import {useEffect, useState} from "react"
 import { cn } from "@/lib/utils.ts"
 
