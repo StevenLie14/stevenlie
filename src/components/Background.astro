@@ -1,7 +1,6 @@
 ---
 import { InteractiveGridPattern } from "./ui/interactive-grid-pattern";
 import { ScrollProgress } from "./ui/scroll-progress";
-import FloatingIcons from "./ui/floating-icons";
 import Navigation from "./Navigation.astro";
 import Hero from "./Hero.astro";
 import Experience from "./Experience.astro";
@@ -38,24 +37,40 @@ import Contact from "./Contact.astro";
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll("a[data-section]");
 
+        navLinks.forEach(link => {
+            link.addEventListener("click", (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            })
+        })
+
         const observer = new IntersectionObserver(
           (entries) => {
               entries.forEach((entry) => {
                   const id = entry.target.getAttribute("id");
-                  const link = document.querySelector(`a[data-section="${id}"]`);
+                  const link = document.querySelector(`a[data-section="${id}"] > button`);
 
                   if (entry.isIntersecting) {
                       navLinks.forEach((l) => {
-                          l.classList.remove("text-primary");
-                          l.classList.remove("neon-text");
+                          const button = l.querySelector("button");
+                          button?.classList.remove("text-primary");
+                          button?.classList.remove("neon-text");
+                          button?.classList.add("text-muted-foreground");
                       });
 
                       link?.classList.add("text-primary");
+                      link?.classList.remove("text-muted-foreground");
                       link?.classList.add("neon-text");
                   }
               });
           },
-          { threshold: 0.1 }
+          { threshold: 0.3 }
         );
 
         sections.forEach((sec) => observer.observe(sec));
