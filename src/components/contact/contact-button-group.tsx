@@ -25,6 +25,7 @@ export default function ContactButtonsGroup() {
           tooltip="+62 853 6188 2049"
           color="text-gray-400 hover:text-pink-400 hover:bg-pink-500/10 glow-border-pink"
           tooltipColor={"bg-pink-500/10 fill-pink-500/10 text-pink-300 border border-pink-500/30"}
+          href={"https://wa.me/6285361882049"}
         />
         <TooltipButton
           icon={<Github className="w-5 h-5" />}
