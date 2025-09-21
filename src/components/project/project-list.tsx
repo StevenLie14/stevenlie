@@ -62,22 +62,34 @@ export default function ProjectList() {
             </div>
 
             <div className="flex gap-3">
-              <Button
-                variant="outline"
-                size="sm"
-                className="hover:bg-blue-500/10 hover:border-blue-500 hover:text-blue-400 bg-transparent border-gray-700 text-gray-300"
-              >
-                <Github className="w-4 h-4 mr-2" />
-                Code
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="hover:bg-purple-500/10 hover:border-purple-500 hover:text-purple-400 bg-transparent border-gray-700 text-gray-300"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Demo
-              </Button>
+              {
+                project.github && (
+                    <a href={project.github} target="_blank" onClick={(e) => e.stopPropagation()}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="hover:bg-blue-500/10 hover:border-blue-500 hover:text-blue-400 bg-transparent border-gray-700 text-gray-300"
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                    </a>
+                  )
+              }
+              {
+                project.demo && (
+                    <a href={project.demo} target="_blank" onClick={(e) => e.stopPropagation()}>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="hover:bg-purple-500/10 hover:border-purple-500 hover:text-purple-400 bg-transparent border-gray-700 text-gray-300"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </Button>
+                    </a>
+                  )
+              }
             </div>
           </CardContent>
         </Card>

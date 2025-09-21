@@ -95,21 +95,33 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
               </div>
 
               <div className="flex gap-4">
-                <a
-                  // href={project?.githubLink}
-                  target="_blank">
-                  <Button className="bg-blue-500 hover:bg-blue-600 text-white cursor-pointer scale-100 active:scale-95 transition-transform duration-150">
-                      <Github className="w-4 h-4 mr-2" />
-                      View Source Code
-                  </Button>
-                </a>
-                <Button
-                  variant="outline"
-                  className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent cursor-pointer scale-100 active:scale-95 transition-transform duration-150"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Live Demo
-                </Button>
+                {
+                  project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank">
+                      <Button className="bg-blue-500 hover:bg-blue-600 text-white cursor-pointer scale-100 active:scale-95 transition-transform duration-150">
+                          <Github className="w-4 h-4 mr-2" />
+                          View Source Code
+                      </Button>
+                    </a>
+                  )
+                }
+                {
+                  project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank">
+                      <Button
+                        variant="outline"
+                        className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent cursor-pointer scale-100 active:scale-95 transition-transform duration-150"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
+                      </Button>
+                    </a>
+                  )
+                }
               </div>
             </div>
           </div>
