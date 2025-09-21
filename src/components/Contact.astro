@@ -1,0 +1,85 @@
+---
+import { Card, CardContent } from "./ui/card"
+import { Badge } from "./ui/badge"
+import { Mail, MapPin, Phone, Linkedin, Github } from "lucide-react"
+---
+
+<section id="contact" class="py-20 px-6 relative">
+    <!--<div class="absolute inset-0 neon-grid animate-grid-pulse opacity-20"></div>-->
+    <!--<div class="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-cyan-500/5"></div>-->
+
+    <div class="container mx-auto relative">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-balance">
+            <span class="text-blue-400 drop-shadow-[0_0_6px_rgba(59,130,246,0.5)]">
+              Let's Get In Touch
+            </span>
+          </h2>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
+            <Card
+              className="bg-gray-900/50 backdrop-blur-sm border border-gray-700 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/10 transition-all duration-300 glow-border-blue"
+            >
+                <CardContent className="p-8">
+                    <h3 class="text-2xl font-semibold mb-8 text-blue-400">Contact Information</h3>
+
+                    <div class="space-y-6">
+                        <a href="mailto:stevenliementha@gmail.com" target="_blank" rel="noopener noreferrer" class="hover:bg-blue-100/10 pointer-events-auto flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center glow-border-cyan">
+                                <Mail className="w-5 h-5 text-cyan-400" />
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-200">Email</p>
+                                <p class="text-gray-400">stevenliementha@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/steven-liementha" target="_blank" rel="noopener noreferrer" class="pointer-events-auto flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center glow-border-blue">
+                                <Linkedin className="w-5 h-5 text-blue-400" />
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-200">Linkedin</p>
+                                <p class="text-gray-400">Steven Liementha</p>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/6285361882049" target="_blank" rel="noopener noreferrer" class="pointer-events-auto flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center glow-border-pink">
+                                <Phone className="w-5 h-5 text-pink-400" />
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-200">Whatsapp</p>
+                                <p class="text-gray-400">+62 853 6188 2049</p>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/StevenLie14" target="_blank" rel="noopener noreferrer" class="pointer-events-auto flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center glow-border-purple">
+                                <Github className="w-5 h-5 text-purple-400" />
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-200">Github</p>
+                                <p class="text-gray-400">StevenLie14</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </CardContent>
+            </Card>
+
+            <div class="flex flex-col justify-center space-y-4">
+                <Badge variant="outline" className="border-blue-400/50 text-blue-300">
+                    <MapPin className="w-8 h-8 mr-1" /> Jakarta, Indonesia
+                </Badge>
+                <blockquote class="text-2xl font-semibold text-blue-400 italic">
+                    “Every great story starts with a simple hello.”
+                </blockquote>
+                <p class="text-xl leading-relaxed max-w-lg text-gray-300">
+                    Send me a message anytime whether it’s about work, ideas, or just random thoughts that pop into your head. Don’t overthink it; sometimes the best conversations start with a simple “Hey.” Whether you’re curious, looking to collaborate, or just want to say hi, I’d be glad to hear from you. Let’s see where the conversation takes us!
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

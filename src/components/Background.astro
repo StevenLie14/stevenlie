@@ -1,0 +1,78 @@
+---
+import { InteractiveGridPattern } from "./ui/interactive-grid-pattern";
+import { ScrollProgress } from "./ui/scroll-progress";
+import Navigation from "./Navigation.astro";
+import Hero from "./Hero.astro";
+import Experience from "./Experience.astro";
+import Project from "./Project.astro";
+import Contact from "./Contact.astro";
+
+---
+
+
+
+<div class="relative min-h-screen bg-slate-950">
+    <ScrollProgress client:load className="top-0" />
+
+    <Navigation />
+    <InteractiveGridPattern
+      client:load
+      className="cyber-grid fixed inset-0 z-0 pointer-events-none [mask-image:radial-gradient(1100px_circle_at_center,white,transparent)]"
+      width={60}
+      height={60}
+      squares={[80, 80]}
+      squaresClassName="pointer-events-auto stroke-slate-700/30 hover:stroke-blue-500"
+    />
+
+    <div class="relative z-10 space-y-6 pointer-events-none">
+        <Hero />
+        <Experience />
+        <Project />
+        <Contact />
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("a[data-section]");
+
+        navLinks.forEach(link => {
+            link.addEventListener("click", (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            })
+        })
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+              entries.forEach((entry) => {
+                  const id = entry.target.getAttribute("id");
+                  const link = document.querySelector(`a[data-section="${id}"] > button`);
+
+                  if (entry.isIntersecting) {
+                      navLinks.forEach((l) => {
+                          const button = l.querySelector("button");
+                          button?.classList.remove("text-primary");
+                          button?.classList.remove("neon-text");
+                          button?.classList.add("text-muted-foreground");
+                      });
+
+                      link?.classList.add("text-primary");
+                      link?.classList.remove("text-muted-foreground");
+                      link?.classList.add("neon-text");
+                  }
+              });
+          },
+          { threshold: 0.3 }
+        );
+
+        sections.forEach((sec) => observer.observe(sec));
+    });
+</script>

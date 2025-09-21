@@ -1,0 +1,17 @@
+---
+const { href, text, className } = Astro.props;
+import { Button } from "../ui/button"
+---
+
+<a
+        href={href}
+        data-section={href.replace('#', '')}
+>
+    <Button
+            variant="ghost"
+            size="sm"
+            className={`text-sm font-medium transition-all duration-300 hover:text-primary`}
+    >
+      {text}
+    </Button>
+</a>
