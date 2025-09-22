@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge.tsx";
 import {ExternalLink, Github, X } from "lucide-react";
 import {type Dispatch, type MouseEvent, type SetStateAction, useState} from "react";
 import { projects } from "@/data/projects.tsx";
+import {ImageDialog} from "@/components/general/image-dialog.tsx";
 
 interface ProjectModalProps {
   selectedProject: number | null;
@@ -45,11 +46,12 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
             <div>
-              <img
-                src={project.images[selectedImage]}
-                alt="Preview"
-                className="w-full h-56 sm:h-72 md:h-80 object-contain rounded-lg border border-gray-800"
-              />
+              <ImageDialog src={project.images[selectedImage]} />
+              {/*<img*/}
+              {/*  src={project.images[selectedImage]}*/}
+              {/*  alt="Preview"*/}
+              {/*  className="w-full h-56 sm:h-72 md:h-80 object-contain rounded-lg border border-gray-800"*/}
+              {/*/>*/}
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mt-3 sm:mt-4">
                 {project.images.map((img, i) => (
                   <button
