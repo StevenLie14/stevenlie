@@ -11,7 +11,7 @@ import ContactButtonsGroup from "./contact/contact-button-group";
 
 ---
 
-<section id="home" class="min-h-screen text-foreground relative overflow-hidden pt-16 sm:pt-20">
+<section id="home" class="min-h-screen text-foreground relative overflow-hidden pt-24 sm:pt-28">
     <FloatingIcons client:load />
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center min-h-[calc(100vh-8rem)]">
@@ -20,7 +20,7 @@ import ContactButtonsGroup from "./contact/contact-button-group";
                     <p class="text-base sm:text-lg text-muted-foreground">Hello, I am</p>
                 </BoxReveal>
                 <BoxReveal client:load>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Steven Liementha</h1>
+                    <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Steven Liementha</h1>
                 </BoxReveal>
                 <BoxReveal client:load>
                     <div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary neon-text leading-[1.2] sm:leading-[1.5]">
@@ -34,13 +34,13 @@ import ContactButtonsGroup from "./contact/contact-button-group";
                     </div>
                 </BoxReveal>
                 <BoxReveal client:load>
-                    <p class="text-lg sm:text-xl text-start text-muted-foreground leading-relaxed max-w-full lg:max-w-lg mx-auto lg:mx-0">
+                    <p class="text-sm md:text-xl text-start text-muted-foreground leading-relaxed max-w-full lg:max-w-lg mx-auto lg:mx-0">
                         I’m passionate about full-stack development, AI, and DevOps, and enjoy creating solutions that are both practical and scalable.
                         I focus on building technology that runs efficiently and adapts to evolving challenges.
                     </p>
                 </BoxReveal>
                 <BoxReveal client:load>
-                    <div class="flex justify-center lg:justify-start items-center mt-6 sm:mt-8">
+                    <div class="flex justify-center lg:justify-start items-center mt-2 xs:mt-4 sm:mt-8">
                         <InteractiveHoverButton className="pointer-events-auto text-primary-foreground animate-glow">
                             <div class="flex items-center gap-2">
                                 <Download className="w-4 h-4"/> Download CV
@@ -56,10 +56,10 @@ import ContactButtonsGroup from "./contact/contact-button-group";
             </div>
 
             <div class="flex justify-center lg:justify-end order-1 lg:order-2 mb-8 lg:mb-0">
-                <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-120 xl:h-120">
+                <div class="relative xs:w-64 xs:w-64 w-50 h-50 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-120 xl:h-120">
                     <div class="w-full h-full bg-card neon-border rounded-full flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
-                        <Image class="w-full h-full object-cover z-10 relative" src={me || "/placeholder.svg"} alt="Steven Liementha" loading="eager" />
+                        <Image class="w-full h-full object-cover relative" src={me || "/placeholder.svg"} alt="Steven Liementha" loading="eager" />
                     </div>
 
                     <div class="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-primary rounded-full animate-bounce neon-border"></div>

@@ -20,14 +20,14 @@ export default function ProjectList() {
       {projects.map((project, index) => (
         <Card
           key={index}
-          className="pointer-events-auto group bg-gray-900/50 backdrop-blur-sm border border-gray-800 hover:border-blue-500/50 transition-all duration-500 overflow-hidden cursor-pointer"
+          className="pointer-events-auto group pt-0 bg-gray-900/50 backdrop-blur-sm border border-gray-800 hover:border-blue-500/50 transition-all duration-500 overflow-hidden cursor-pointer"
           onClick={() => setSelectedProject(index)}
         >
           <div className="relative overflow-hidden">
             <img
               src={project.images[0]}
               alt={project.title}
-              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
             <Badge className="absolute top-4 left-4 bg-blue-500/20 text-blue-300 border-blue-500/30">
@@ -43,7 +43,7 @@ export default function ProjectList() {
             </Button>
           </div>
 
-          <CardContent className="p-6">
+          <CardContent className="px-6">
             <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
               {project.title}
             </h3>
