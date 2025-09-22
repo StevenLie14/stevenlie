@@ -18,16 +18,16 @@ export const ImageDialog = ({src} : IProps ) => {
         </AspectRatio>
       </DialogTrigger>
 
-      <DialogContent className="max-w-[80vw] sm:max-w-[85vw] lg:max-w-[90vw] p-4">
+      <DialogContent className="min-w-[90vw] max-h-[90vh] p-4">
         <DialogTitle>Image</DialogTitle>
-        <AspectRatio ratio={16 / 9}>
+        <div className="relative w-full h-full flex items-center justify-center">
           <img
             src={src}
             alt="Photo"
-            className="h-full w-full object-contain rounded-lg border border-gray-800"
+            className="max-h-[80vh] w-full object-contain rounded-lg border border-gray-800"
             loading="lazy"
           />
-        </AspectRatio>
+        </div>
       </DialogContent>
     </Dialog>
   )
