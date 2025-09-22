@@ -23,7 +23,7 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
   }
 
   return (
-    <div className="pointer-events-auto fixed z-100 inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4" onClick={closeModal}>
+    <div className="pointer-events-auto fixed z-100 inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center pt-24 sm:pt-28 p-2 sm:p-4" onClick={closeModal}>
       <div className="bg-gray-900 border border-gray-800 rounded-lg w-full max-w-[95%] sm:max-w-[90%] lg:max-w-5xl max-h-[85vh] overflow-y-auto">
         <div className="p-4 sm:p-6">
           <div className="flex justify-between items-start mb-4 sm:mb-6">
@@ -50,12 +50,12 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
                 alt="Preview"
                 className="w-full h-56 sm:h-72 md:h-80 object-contain rounded-lg border border-gray-800"
               />
-              <div className="flex flex-wrap gap-2 mt-3 sm:mt-4">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mt-3 sm:mt-4">
                 {project.images.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setSelectedImage(i)}
-                    className={`w-16 h-12 sm:w-20 sm:h-16 rounded border-2 ${
+                    className={`aspect-[4/3] w-full rounded border-2 flex items-center justify-center overflow-hidden ${
                       selectedImage === i
                         ? "border-blue-500"
                         : "border-gray-700 hover:border-gray-600"
