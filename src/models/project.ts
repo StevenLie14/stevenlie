@@ -8,5 +8,5 @@ interface Project {
   github?: string;
   demo? : string;
   stats? : { [key: string]: string };
-  category : string;
+  private: boolean;
 }

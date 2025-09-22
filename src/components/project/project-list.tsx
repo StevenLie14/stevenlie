@@ -4,7 +4,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Eye } from "lucide-react"
+import {ExternalLink, Github, Eye, Lock} from "lucide-react"
 import {Dialog, DialogTrigger} from "@/components/ui/dialog.tsx";
 import ProjectModal from "@/components/project/project-modal.tsx";
 
@@ -32,9 +32,6 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   className="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
-                <Badge className="absolute top-4 left-4 bg-blue-500/20 text-blue-300 border-blue-500/30">
-                  {project.category}
-                </Badge>
                 <div className="absolute top-4 right-4 text-gray-400 text-sm">{project.date}</div>
                 <Button
                   size="sm"
@@ -65,7 +62,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
                 <div className="flex gap-3">
                   {
-                    project.github && (
+                    !project.private && project.github ? (
                       <a href={project.github} target="_blank" onClick={(e) => e.stopPropagation()}>
                         <Button
                           variant="outline"
@@ -73,9 +70,19 @@ export default function ProjectList({ projects }: ProjectListProps) {
                           className="hover:bg-blue-500/10 hover:border-blue-500 hover:text-blue-400 bg-transparent border-gray-700 text-gray-300"
                         >
                           <Github className="w-4 h-4 mr-2" />
-                          Code
+                          Github
                         </Button>
                       </a>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="cursor-not-allowed opacity-50 bg-transparent border-gray-700 text-gray-500"
+                        disabled
+                      >
+                        <Lock className="w-4 h-4 mr-2" />
+                        Private
+                      </Button>
                     )
                   }
                   {
