@@ -77,9 +77,10 @@ export const projects : Project[] = [
     longDescription:
       "Built an Ansible-powered DevOps automation system that provisions GitHub Actions self-hosted runners on remote servers, deploys Harbor as a secure private container registry, and manages GitHub repository-level secrets. The setup uses Docker Compose to provide cross-platform support, including Windows, ensuring that Ansible can be used in any development environment. Designed to simplify CI/CD infrastructure management with modular playbooks for runners, Harbor, and secrets.",
     images: [
-      "projects/devops-harbor-ansible/logo.png",
-      "projects/devops-harbor-ansible/architecture.png",
-      "projects/devops-harbor-ansible/demo.jpg"
+      "projects/devops/ansible.png",
+      "projects/devops/gitact.png",
+      "projects/devops/registry.png",
+      "projects/devops/vault.png"
     ],
     tags: ["Ansible", "Docker", "Harbor", "DevOps", "GitHub Actions", "CI/CD"],
     github: "https://github.com/StevenLie14/ansible-harbor-github-runner",
