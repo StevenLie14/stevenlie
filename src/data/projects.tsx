@@ -1,5 +1,5 @@
 
-export const projects = [
+export const projects : Project[] = [
   {
     title: "Mystic Vine",
     description:
@@ -16,8 +16,7 @@ export const projects = [
     ],
     tags: ["Kotlin","Android"],
     github: "https://github.com/StevenLie14/MysticVine",
-    demo: "#",
-    stats: { users: "50K+" },
+    // stats: { users: "50K+" },
     date: "Aug 2024 - Sep 2024",
     category: "Android",
   }

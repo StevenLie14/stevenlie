@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button.tsx";
 import { Badge } from "@/components/ui/badge.tsx";
-import { ExternalLink, Github } from "lucide-react";
+import {ExternalLink, Github, X } from "lucide-react";
 import {type Dispatch, type MouseEvent, type SetStateAction, useState} from "react";
 import { projects } from "@/data/projects.tsx";
 
@@ -23,15 +23,15 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
   }
 
   return (
-    <div className="pointer-events-auto fixed z-100 inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onClick={closeModal}>
-      <div className="bg-gray-900 border border-gray-800 rounded-lg max-w-6xl w-full max-h-[90vh] lg:max-h-[80vh] overflow-y-auto">
-        <div className="p-6">
-          <div className="flex justify-between items-start mb-6">
+    <div className="pointer-events-auto fixed z-100 inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4" onClick={closeModal}>
+      <div className="bg-gray-900 border border-gray-800 rounded-lg w-full max-w-[95%] sm:max-w-[90%] lg:max-w-5xl max-h-[85vh] overflow-y-auto">
+        <div className="p-4 sm:p-6">
+          <div className="flex justify-between items-start mb-4 sm:mb-6">
             <div>
-              <h3 className="text-3xl font-bold text-white mb-2">
+              <h3 className="text-xl sm:text-3xl font-bold text-white mb-2">
                 {project.title}
               </h3>
-              <p className="text-gray-300">{project.longDescription}</p>
+              <p className="text-gray-300 text-sm sm:text-base">{project.longDescription}</p>
             </div>
             <Button
               variant="ghost"
@@ -39,54 +39,56 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
               onClick={closeModal}
               className="text-gray-400 hover:text-white"
             >
-              ✕
+              <X />
             </Button>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
             <div>
               <img
                 src={project.images[selectedImage]}
                 alt="Preview"
-                className="w-full h-80 object-cover rounded-lg border border-gray-800"
+                className="w-full h-56 sm:h-72 md:h-80 object-contain rounded-lg border border-gray-800"
               />
-              <div className="flex gap-2 mt-4">
+              <div className="flex flex-wrap gap-2 mt-3 sm:mt-4">
                 {project.images.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setSelectedImage(i)}
-                    className={`w-20 h-16 rounded border-2 ${
+                    className={`w-16 h-12 sm:w-20 sm:h-16 rounded border-2 ${
                       selectedImage === i
                         ? "border-blue-500"
                         : "border-gray-700 hover:border-gray-600"
                     }`}
                   >
-                    <img src={img} className="w-full h-full object-cover rounded" />
+                    <img src={img} className="w-full h-full object-contain rounded" alt={"Not Found"} />
                   </button>
                 ))}
               </div>
             </div>
 
             <div className="space-y-6">
-              <div className="grid grid-cols-3 gap-4">
-                {Object.entries(project.stats).map(([key, value]) => (
-                  <div
-                    key={key}
-                    className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-700"
-                  >
-                    <div className="text-2xl font-bold text-blue-400 mb-1">{value}</div>
-                    <div className="text-gray-400 capitalize text-sm">{key}</div>
-                  </div>
-                ))}
-              </div>
+              {project.stats && Object.keys(project.stats).length > 0 && (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {Object.entries(project.stats).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="text-center p-3 sm:p-4 bg-gray-800/50 rounded-lg border border-gray-700"
+                    >
+                      <div className="text-lg sm:text-2xl font-bold text-blue-400 mb-1">{value}</div>
+                      <div className="text-gray-400 capitalize text-xs sm:text-sm">{key}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <div>
-                <h4 className="text-lg font-semibold text-white mb-3">Technologies Used</h4>
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Technologies Used</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
                     <Badge
                       key={i}
-                      className="bg-blue-500/20 text-blue-300 border-blue-500/30"
+                      className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs sm:text-sm"
                     >
                       {tag}
                     </Badge>
@@ -94,39 +96,32 @@ export default function ProjectModal({ selectedProject, setSelectedProject }: Pr
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                {
-                  project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank">
-                      <Button className="bg-blue-500 hover:bg-blue-600 text-white cursor-pointer scale-100 active:scale-95 transition-transform duration-150">
-                          <Github className="w-4 h-4 mr-2" />
-                          View Source Code
-                      </Button>
-                    </a>
-                  )
-                }
-                {
-                  project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank">
-                      <Button
-                        variant="outline"
-                        className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent cursor-pointer scale-100 active:scale-95 transition-transform duration-150"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </Button>
-                    </a>
-                  )
-                }
+              <div className="flex flex-wrap gap-3">
+                {project.github && (
+                  <a href={project.github} target="_blank">
+                    <Button className="bg-blue-500 hover:bg-blue-600 text-white cursor-pointer scale-100 active:scale-95 transition-transform duration-150 text-sm sm:text-base">
+                      <Github className="w-4 h-4 mr-2" />
+                      View Source Code
+                    </Button>
+                  </a>
+                )}
+                {project.demo && (
+                  <a href={project.demo} target="_blank">
+                    <Button
+                      variant="outline"
+                      className="border-purple-500 text-purple-400 hover:bg-purple-500/10 bg-transparent cursor-pointer scale-100 active:scale-95 transition-transform duration-150 text-sm sm:text-base"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Live Demo
+                    </Button>
+                  </a>
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   );
 }

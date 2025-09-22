@@ -5,17 +5,7 @@ import { Card, CardContent } from "@/components/ui/card.tsx";
 import { Building2 } from "lucide-react";
 import {Badge} from "@/components/ui/badge.tsx";
 
-interface TimelineEntry {
-  title: string;
-  position: string;
-  company: string;
-  description: string;
-  achievements: string[];
-  skills: string[];
-  location: string;
-}
-
-export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+export const Timeline = ({ data }: { data: Experience[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -48,18 +38,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       <div ref={ref} className="relative max-w-7xl mx-auto pb-5">
         {data.map((item) => (
           <div key={item.position} className="flex justify-start pt-30 gap-6">
-            <div className="sticky flex flex-row items-center self-start max-w-xs">
-              <div className="h-10 w-10 absolute left-3 rounded-full flex items-center justify-center neon-glow relative">
+            <div className="sticky flex flex-row items-center self-start max-w-xs z-10">
+              <div className="h-10 w-10 absolute left-3 rounded-full flex items-center justify-center neon-glow">
                 <div className="h-4 w-4 rounded-full bg-blue-500 border border-primary p-2" />
               </div>
             </div>
 
-            <div className="relative pl-6 pr-4 w-full">
+            <div className="relative pl-6 pr-4 pt-4 w-full">
               <h3 className="text-xl mb-2 text-left font-bold">{item.position}</h3>
-              <div className="flex items-center gap-2 text-muted-foreground mb-2">
+              <div className="flex items-center gap-2 text-muted-foreground mb-2 flex-wrap">
                 <Building2 className="w-4 h-4" />
                 <span className="font-medium">{item.company}</span>
-                <span> . {item.location}</span>
+                <span>-</span>
+                <span>{item.location}</span>
               </div>
               <span className="text-sm text-muted-foreground mb-4 block">{item.title}</span>
 

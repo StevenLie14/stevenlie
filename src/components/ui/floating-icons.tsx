@@ -14,7 +14,7 @@ const techIcons: TechIcon[] = [
   { name: "JS", Icon: SquareCode, color: "#eab308", classes: "top-[85%] left-[80%] lg:top-[90%] lg:left-[80%]" },
   { name: "Database", Icon: Database, color: "#3b82f6", classes: "top-[12%] left-[5%] lg:top-[12%] lg:left-[6%]" },
   { name: "AI", Icon: Bot, color: "#9333ea", classes: "top-[55%] left-[75%] lg:top-[20%] lg:left-[50%]" },
-  { name: "Brain", Icon: BrainCircuit, color: "#f43f5e", classes: "top-[45%] left-[30%] lg:top-[80%] lg:left-[30%]" },
+  { name: "Brain", Icon: BrainCircuit, color: "#f43f5e", classes: "top-[48%] xs:top-[50%] left-[30%] lg:top-[80%] lg:left-[30%]" },
 ]
 
 export default function FloatingIcons() {
@@ -25,7 +25,7 @@ export default function FloatingIcons() {
   }, {} as Record<string, ReturnType<typeof useAnimation>>)
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-50">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {techIcons.map((icon) => {
         const controls = controlsMap[icon.name]
         const [isDragging, setIsDragging] = useState(false)
