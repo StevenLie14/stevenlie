@@ -13,22 +13,21 @@ export const ImageDialog = ({src} : IProps ) => {
           <img
             src={src}
             alt="Photo"
-            className="h-auto w-full object-contain rounded-lg border border-gray-800 p-2"
+            className="w-full max-h-[90%] object-contain rounded-lg border border-gray-800 p-2"
           />
         </AspectRatio>
       </DialogTrigger>
 
-      <DialogContent className="xl:min-w-[1200px] lg:min-w-[1000px] md:min-w-[800px] sm:min-w-[600px] min-w-[400px] p-4">
+      <DialogContent className="max-w-[80vw] sm:max-w-[85vw] lg:max-w-[90vw] p-4">
         <DialogTitle>Image</DialogTitle>
-        <div className="relative w-full">
-          <AspectRatio ratio={16 / 9}>
-            <img
-              src={src}
-              alt="Photo"
-              className="h-full w-full object-contain rounded-lg border border-gray-800"
-            />
-          </AspectRatio>
-        </div>
+        <AspectRatio ratio={16 / 9}>
+          <img
+            src={src}
+            alt="Photo"
+            className="h-full w-full object-contain rounded-lg border border-gray-800"
+            loading="lazy"
+          />
+        </AspectRatio>
       </DialogContent>
     </Dialog>
   )

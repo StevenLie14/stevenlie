@@ -1,4 +1,3 @@
-
 export const projects : Project[] = [
   {
     title: "Mystic Vine",
