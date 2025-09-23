@@ -18,11 +18,11 @@ export default function ProjectList({ projects }: ProjectListProps) {
   return (
     <>
 
-      {projects.map((project, index) => (
-        <Dialog>
+      {projects.map((project) => (
+        <Dialog key={project.title}>
           <DialogTrigger asChild>
             <Card
-              key={index}
+              key={project.description}
               className="pointer-events-auto group pt-0 bg-gray-900/50 backdrop-blur-sm border border-gray-800 hover:border-blue-500/50 transition-all duration-500 overflow-hidden cursor-pointer"
             >
               <div className="relative overflow-hidden">

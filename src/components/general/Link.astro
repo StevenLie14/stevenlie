@@ -6,11 +6,18 @@ import { Button } from "../ui/button"
 <a
         href={href}
         data-section={href.replace('#', '')}
+
 >
     <Button
-            variant="ghost"
+            variant="custom"
             size="sm"
-            className={`text-xs font-medium transition-all duration-300 hover:text-primary`}
+            className={`
+              relative text-xs font-medium transition-all duration-300 hover:text-primary
+              after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px]
+              after:w-full after:scale-x-0 after:origin-left after:bg-primary
+              after:transition-transform after:duration-300
+              hover:after:scale-x-100
+            `}
     >
       {text}
     </Button>
