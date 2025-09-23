@@ -192,7 +192,6 @@ export const projects : Project[] = [
       "FastAPI",
       "PostgreSQL",
       "Line API",
-      "Pydantic",
     ],
     github: "https://github.com/StevenLie14/line-bot",
     demo: "",
