@@ -42,7 +42,8 @@ export const projects : Project[] = [
       "DFX",
       "Internet Computer",
       "IC - WebSocket",
-      "Python"
+      "Python",
+      "Fast API"
     ],
     github: "https://github.com/StevenLie14/nekonnect",
     date: "Feb 2025 - Mar 2025",
@@ -117,7 +118,88 @@ export const projects : Project[] = [
     demo: "",
     date: "Sep 2025",
     private: true
+  },
+  {
+    title: "ScanVision – Smart Document, Image & OCR Processing",
+    description:
+      "A web-based software that enhances document scanning, OCR text extraction, and image editing with filters, PDF conversion, and manipulation tools, built with Flask, PostgreSQL (Amazon RDS), and OpenCV.",
+    longDescription:
+      "ScanVision is a document scanning and image processing solution designed to simplify workflows for students, professionals, and businesses. With support for filters like brightness, contrast, and sharpness adjustments, users can quickly enhance scanned documents for readability. The platform also provides robust editing capabilities like crop, rotate, and resize images as well as seamless conversions between PDFs and images (single or multi-page). Additionally, ScanVision includes OCR (Optical Character Recognition) functionality to extract editable text from scanned documents or images, making it easier to digitize and search paper-based content. Built on Flask, SQL, and OpenCV, ScanVision combines advanced image processing, OCR, and conversion tools into a single workflow, eliminating the hassle of managing physical and digital documents.",
+    images: [
+      "projects/scanvision/home.jpeg",
+      "projects/scanvision/ocr.jpeg",
+      "projects/scanvision/crop.jpeg",
+      "projects/scanvision/docs.jpeg",
+      "projects/scanvision/register.jpeg"
+    ],
+    tags: [
+      "Python",
+      "Flask",
+      "OpenCV",
+      "OCR",
+      "SQL",
+      "Document Scanning",
+      "PDF Tools",
+      "AWS"
+    ],
+    github: "https://github.com/StevenLie14/ScanVision",
+    demo: "",
+    date: "Nov 2024",
+    private: false
+  },
+  {
+    title: "HCI — Zara Clone (E-Commerce Application)",
+    description: "A full-stack Zara-inspired e-commerce platform built as part of a Human-Computer Interaction (HCI) college project, featuring product catalogs, authentication, shopping cart, and checkout.",
+    longDescription: "Developed a Zara-like e-commerce system as part of a Human-Computer Interaction (HCI) course project. The platform includes a Spring Boot backend with JWT-based authentication, product and category management, shopping cart and transactions, shipping address management, file storage via MinIO, and PostgreSQL database integration with automated migrations. The React + Vite + TypeScript frontend delivers a responsive customer and admin interface. The system is fully containerized with Docker Compose for reproducible local development, exposing services for backend, frontend, PostgreSQL, and MinIO. API documentation is available via Swagger UI, while MinIO console enables object storage management. This project demonstrates full-stack development, integration of modern frameworks, and application of HCI principles to build an interactive shopping experience.",
+    images: [
+      "projects/zara/zara.png",
+      "projects/zara/cart.png",
+      "projects/zara/dark-profile.png",
+      "projects/zara/dark-register.jpg",
+      "projects/zara/dark-addprod.jpg"
+    ],
+    tags: [
+      "Java",
+      "Spring Boot",
+      "Maven",
+      "PostgreSQL",
+      "MinIO",
+      "React",
+      "Vite",
+      "TypeScript",
+      "Docker",
+      "Docker Compose",
+      "shadcn/ui",
+    ],
+    github: "https://github.com/StevenLie14/HCI-Zara-Project",
+    demo: "",
+    date: "Apr 2025 - May 2025",
+    private: false
+  },
+  {
+    title: "Line-Bot – Notification, Reminder & Assistant System",
+    description:
+      "A Python-based Line Messaging bot that automates reminders, ticket notifications, and assistant data queries for internal SLC.",
+    longDescription:
+      "Line-Bot is a production-ready Line Messaging assistant designed to streamline internal SLC workflows through automation and API integrations. It connects to the REQUEST SLC API to deliver periodic reminders and new ticket alerts, while the RESMAN API integration enables users to fetch schedules, shifts, and other assistant-related data directly through Line. Built with Python 3.12, FastAPI, and PostgreSQL, the system supports rapid deployment and seamless integration with Line channels, empowering teams with real-time notifications, schedule access, and smarter workflows.",
+    images: [
+      "projects/linebot/rndba.jpeg",
+      "projects/linebot/help.png",
+      "projects/linebot/reminder.png"
+    ],
+    tags: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Line API",
+      "Pydantic",
+    ],
+    github: "https://github.com/StevenLie14/line-bot",
+    demo: "",
+    date: "Aug 2025 - Sep 2025",
+    private: false
   }
+
 
 
 ]

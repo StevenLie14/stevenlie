@@ -22,8 +22,8 @@ export const timelineData = [
     description:
       "As a Teaching Assistant at the Software Laboratory Center, I was responsible for teaching, creating case studies, and handling assessment corrections across several courses.",
     achievements: [
-      "Handled courses including Computer Vision with Python and OpenCV, Database Systems using SSMS and SQL Server, Web Development (HTML/CSS/JS/jQuery), Programming for Business (PHP), and Business Application Development (JavaFX).",
-      "Received Best Assistant Award for contributions to student learning and course facilitation.",
+      "Handled courses (7–8 classes) including Computer Vision with Python and OpenCV, Database Systems using SSMS and SQL Server, Web Development (HTML/CSS/JS/jQuery), Programming for Business (PHP), and Business Application Development (JavaFX).",
+      "Honored with the Best Performing Assistant Award, standing out for commitment and impactful contributions as a Software Laboratory Assistant among 50 fellow assistants.",
       "Achieved Best Qualification for completing case-based assessments across multiple advanced modules, including Deep Learning, NLP, Computer Vision, Speech Recognition, Big Data Processing, Network Penetration Testing, and Mobile Cloud Computing (Flutter).",
       "Honored with Best TPA Award for completing five major projects, including RPG Game (Unity/C#), Exam System Desktop Application (React/Vite/Rust/Tauri), Spotify Clone (React/TypeScript/Go/Python), Mystic Vine Mobile Game (Android/Kotlin/Firebase), and Networking Project (Cisco/Grafana/Prometheus/Docker)."
     ],
