@@ -1,22 +1,26 @@
 ---
-import ProjectList from './project/project-list';
-import {projects} from "../data/projects";
+import {certifications} from "../data/certifications";
+import { CertificationCard } from "./certification/certification-card";
 ---
 
-<section id="project" class="pt-20 px-6 relative">
+<section id="certificate" class="min-h-screen text-foreground pt-20 relative w-full overflow-visible">
     <div class="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
 
     <div class="container mx-auto relative z-10">
         <div class="text-center mb-16">
             <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-balance">
                 <span class="text-blue-400 drop-shadow-[0_0_6px_rgba(59,130,246,0.5)]">
-                  Projects
+                  Certificates
                 </span>
             </h2>
         </div>
-
         <div class="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto mb-16">
-            <ProjectList client:load projects={projects} />
+            {
+              certifications.map((certification) => (
+                <CertificationCard client:visible certification={certification}/>
+              ))
+            }
         </div>
     </div>
+
 </section>

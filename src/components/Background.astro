@@ -6,12 +6,13 @@ import Hero from "./Hero.astro";
 import Experience from "./Experience.astro";
 import Project from "./Project.astro";
 import Contact from "./Contact.astro";
+import Certification from "./Certification.astro";
 
 ---
 
 
 
-<div class="relative min-h-screen bg-slate-950">
+<div class="relative min-h-screen w-full bg-slate-950">
     <ScrollProgress client:load className="top-0" />
 
     <Navigation />
@@ -27,12 +28,14 @@ import Contact from "./Contact.astro";
     <div class="relative z-10 space-y-6 pointer-events-none">
         <Hero />
         <Experience />
+        <Certification />
         <Project />
         <Contact />
     </div>
 </div>
 
 <script>
+
     document.addEventListener("DOMContentLoaded", () => {
         const sections = document.querySelectorAll("section[id]");
         const navLinks = document.querySelectorAll("a[data-section]");
@@ -54,7 +57,7 @@ import Contact from "./Contact.astro";
           (entries) => {
               entries.forEach((entry) => {
                   const id = entry.target.getAttribute("id");
-                  const link = document.querySelector(`a[data-section="${id}"] > button`);
+                  const links = document.querySelectorAll(`a[data-section="${id}"] button`);
 
                   if (entry.isIntersecting) {
                       navLinks.forEach((l) => {
@@ -64,13 +67,17 @@ import Contact from "./Contact.astro";
                           button?.classList.add("text-muted-foreground");
                       });
 
-                      link?.classList.add("text-primary");
-                      link?.classList.remove("text-muted-foreground");
-                      link?.classList.add("neon-text");
+                      links.forEach((l) => {
+                          l.classList.add("text-primary");
+                          l.classList.remove("text-muted-foreground");
+                          l.classList.add("neon-text");
+                      });
+
+
                   }
               });
           },
-          { threshold: 0.3 }
+          { threshold: 0.2 }
         );
 
         sections.forEach((sec) => observer.observe(sec));
