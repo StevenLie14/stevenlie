@@ -99,8 +99,6 @@ export const projects : Project[] = [
       "OpenCV",
       "OCR",
       "SQL",
-      "Document Scanning",
-      "PDF Tools",
       "AWS"
     ],
     github: "https://github.com/StevenLie14/ScanVision",
