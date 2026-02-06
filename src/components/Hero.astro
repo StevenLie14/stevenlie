@@ -41,11 +41,13 @@ import ContactButtonsGroup from "./contact/contact-button-group";
                 </BoxReveal>
                 <BoxReveal client:load>
                     <div class="flex justify-center lg:justify-start items-center mt-2 xs:mt-4 sm:mt-8">
-                        <InteractiveHoverButton className="pointer-events-auto text-primary-foreground animate-glow">
-                            <div class="flex items-center gap-2">
-                                <Download className="w-4 h-4"/> Download CV
-                            </div>
-                        </InteractiveHoverButton>
+                        <a href="/cv/Steven_Liementha_CV.pdf" download="StevenLiementha_CV.pdf">
+                            <InteractiveHoverButton className="pointer-events-auto text-primary-foreground animate-glow">
+                                <div class="flex items-center gap-2">
+                                    <Download className="w-4 h-4"/> Download CV
+                                </div>
+                            </InteractiveHoverButton>
+                        </a>
                     </div>
                 </BoxReveal>
                 <BoxReveal client:load>

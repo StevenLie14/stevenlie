@@ -17,7 +17,6 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
   return (
     <>
-
       {projects.map((project) => (
         <Dialog key={project.title}>
           <DialogTrigger asChild>
@@ -32,10 +31,10 @@ export default function ProjectList({ projects }: ProjectListProps) {
                   className="w-full h-64 object-contain transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
-                <div className="absolute top-4 right-4 text-gray-400 text-sm">{project.date}</div>
+                <div className="absolute top-4 right-4 text-primary text-sm">{project.date}</div>
                 <Button
                   size="sm"
-                  className="absolute bottom-4 right-4 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border-blue-500/30"
+                  className="absolute cursor-pointer bottom-4 right-4 bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border-blue-500/30"
                 >
                   <Eye className="w-4 h-4 mr-2" />
                   View Details
@@ -43,19 +42,19 @@ export default function ProjectList({ projects }: ProjectListProps) {
               </div>
 
               <CardContent className="px-6">
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4 leading-relaxed text-sm">{project.description}</p>
+                <p className="mb-4 leading-relaxed text-sm">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <Badge
                       key={tagIndex}
                       variant="secondary"
-                      className="text-xs bg-gray-800 text-gray-300 border-gray-700"
+                      className="bg-primary/20 text-primary border-primary/30 glow-border-blue hover-glow-blue text-xs transition-all duration-300"
                     >
-                      {tag}
+                        {tag}
                     </Badge>
                   ))}
                 </div>

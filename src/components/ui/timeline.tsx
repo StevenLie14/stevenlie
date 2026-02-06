@@ -1,11 +1,15 @@
 "use client";
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card.tsx";
-import { Building2 } from "lucide-react";
-import {Badge} from "@/components/ui/badge.tsx";
+import {ExperienceCard} from "@/components/experience/experience-card.tsx";
+import type {Certification} from "@/models/certification.ts";
+import {CertificationCard} from "@/components/certification/certification-card.tsx";
 
-export const Timeline = ({ data }: { data: Experience[] }) => {
+interface IProps {
+  item : {type : "Experience", data: Experience[]} | {type: "Certification", data: Certification[]};
+}
+
+export const Timeline = ({ item }: IProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -25,78 +29,46 @@ export const Timeline = ({ data }: { data: Experience[] }) => {
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
+  const renderCards = () => {
+    switch (item.type) {
+      case "Experience":
+        return (
+          <div className="mt-10 space-y-20">
+            {item.data.map((exp, index) => (
+              <ExperienceCard key={exp.position} experience={exp} />
+            ))}
+          </div>
+        );
+      case "Certification":
+        return (
+          <div className="mt-10 space-y-20">
+            {item.data.map((cert, index) => (
+              <CertificationCard key={cert.title} certification={cert} />
+            ))}
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+
   return (
     <div className="w-full font-sans md:px-10" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-        <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance">
+        <h2 className="text-4xl lg:text-5xl font-bold text-balance">
           <span className="text-blue-400 drop-shadow-[0_0_6px_rgba(59,130,246,0.5)]">
-            Experience
+            {item.type}
           </span>
         </h2>
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-5">
-        {data.map((item) => (
-          <div key={item.position} className="flex justify-start pt-30 gap-6">
-            <div className="sticky flex flex-row items-center self-start max-w-xs z-10">
-              <div className="h-10 w-10 absolute left-3 rounded-full flex items-center justify-center neon-glow">
-                <div className="h-4 w-4 rounded-full bg-blue-500 border border-primary p-2" />
-              </div>
-            </div>
-
-            <div className="relative pl-6 pr-4 pt-4 w-full">
-              <h3 className="text-xl mb-2 text-left font-bold">{item.position}</h3>
-              <div className="flex items-center gap-2 text-muted-foreground mb-2 flex-wrap">
-                <Building2 className="w-4 h-4" />
-                <span className="font-medium">{item.company}</span>
-                <span>-</span>
-                <span>{item.location}</span>
-              </div>
-              <span className="text-sm text-muted-foreground mb-4 block">{item.title}</span>
-
-              <Card className="flex-1 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:neon-glow">
-                <CardContent className="p-6">
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{item.description}</p>
-
-                  {item.achievements && item.achievements.length > 0 && (
-                    <div className="space-y-2">
-                      <h4 className="font-medium text-sm text-accent">Key Achievements:</h4>
-                      <ul className="space-y-1">
-                        {item.achievements.map((ach) => (
-                          <li key={ach} className="text-sm text-muted-foreground flex items-center">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3 flex-shrink-0" />
-                            {ach}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {item.skills && item.skills.length > 0 && (
-                    <div className="mt-4">
-                      <h4 className="font-medium text-sm text-accent">Skills:</h4>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {item.skills.map((skill) => (
-                            <Badge
-                              key={skill}
-                              variant="secondary"
-                              className="text-xs bg-gray-800 text-gray-300 border-gray-700"
-                            >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        ))}
+      <div ref={ref} className="relative max-w-7xl mx-auto">
+        {renderCards()}
 
         <div
           style={{ height: height + "px" }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute md:left-8 left-8 -top-12 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
