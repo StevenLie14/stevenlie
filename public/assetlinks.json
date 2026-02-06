@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.mjp",
+      "sha256_cert_fingerprints": [
+        "D5:13:BA:4D:81:62:8B:E3:B5:C9:CA:33:0A:FF:E1:B0:A7:94:76:2F:FC:AB:E6:A9:93:EF:60:0A:0E:C1:9E:03"
+      ]
+    }
+  }
+]
