@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: hostinger
+    runs-on: shin
     steps:
       - name: Git Checkout Repository
         uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
 
 
   deploy:
-    runs-on: hostinger
+    runs-on: shin
     needs: build
     steps:
       - name: Import Deploy Secrets from Hashicorp
