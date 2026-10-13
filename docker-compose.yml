@@ -4,7 +4,7 @@ services:
     tty: true
     pull_policy: always
     restart: unless-stopped
-    image: registry.stevenlie.my.id/stevenlie14/stevenlie:latest
+    image: registry.stevenlie.site/stevenlie14/stevenlie:latest
     build:
       context: .
     ports:
